@@ -116,6 +116,7 @@
 - 일시정지·재개·종료 단계·결과 확정은 화면이 꺼져 있어도 바로 보낸다.
 - 워치 명령을 반영하면 1초를 기다리지 않고 바로 보낸다(`statusVersion` +1, `lastRequestId`).
 - `WATCH_COMBO_TRIGGERED`는 화면이 꺼져 있어도 보낸다 — 워치가 진동한다.
+- `WATCH_VISIBILITY_UPDATE`(`isVisible: true`)를 받으면 러닝이 끝났어도 지금 상태를 바로 한 번 보낸다 — 화면이 꺼진 사이 놓친 결과 확정을 되찾는다.
 - `WATCH_VISIBILITY_UPDATE`가 15초 없으면 화면이 꺼진 것으로 보고 1초 전송을 멈춘다.
 - 거절(`ERROR`)은 러닝이 없거나 다른 방일 때(로그아웃·계정 전환 포함), `phoneInstanceId`·`statusVersion`이 다를 때만. 워치 명령은 폰 버튼과 같은 길로 처리한다.
 - 폰에서 러닝을 시작하면 워치 앱을 켠다(메시지가 아니라 플랫폼 기능).

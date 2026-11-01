@@ -21,9 +21,15 @@ class PhoneChannel(context: Context) {
             if (event.path != PATH) return@OnMessageReceivedListener
             decodeOrNull(event.data)?.let { trySend(it) }
         }
-        // 등록이 실패하면 아무것도 못 받은 채 조용히 남지 않게, 받는 쪽에 예외로 넘긴다
-        messageClient.addListener(listener).await()
-        awaitClose { messageClient.removeListener(listener) }
+        // 등록이 실패하면 아무것도 못 받은 채 조용히 남지 않게, 받는 쪽에 예외로 넘긴다.
+        // 등록을 기다리는 중에 취소돼도 등록 자체는 끝까지 진행된다 — 등록이 끝난 뒤에 해제해야 남지 않는다
+        val registration = messageClient.addListener(listener)
+        try {
+            registration.await()
+            awaitClose()
+        } finally {
+            registration.addOnCompleteListener { messageClient.removeListener(listener) }
+        }
     }
 
     // 실패를 되묻지 않는다 — 답이 안 오면 PhoneLink가 SYNC로 다시 맞춘다

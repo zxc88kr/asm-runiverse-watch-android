@@ -16,6 +16,7 @@ Runiverse 갤럭시워치(Wear OS) 앱. 폰 앱(runiverse-frontend)과 Data Laye
 
 - `docs/code-convention.md` — 네이밍·주석·테스트 규칙
 - `docs/git-convention.md` — 커밋·브랜치·PR 규칙
+- `docs/phone-communication.md` — 폰↔워치 메시지·번호·상태 모양·보내고 받는 규칙
 
 ## 구조
 

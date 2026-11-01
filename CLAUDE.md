@@ -21,6 +21,7 @@ Runiverse 갤럭시워치(Wear OS) 앱. 폰 앱(runiverse-frontend)과 Data Laye
 ## 구조
 
 - 모듈은 `app` 하나, 코드는 `app/src/main/java/com/runiverse/app/`. 기능 패키지를 만들면 여기에 적는다.
+  - `phone` — 폰과 메시지 주고받기·연결 상태
 - 라이브러리·플러그인 버전은 `gradle/libs.versions.toml`에만 적는다.
 - flavor는 폰 앱과 같다 — `dev`(`com.runiverse.app.dev`)·`prod`(`com.runiverse.app`). 폰 dev 빌드와 붙여 볼 땐 워치도 `dev`.
 

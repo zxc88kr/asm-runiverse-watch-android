@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Bash(./gradlew :app:assemble*)",
+      "Bash(./gradlew :app:lint*)",
+      "Bash(./gradlew :app:test*)"
+    ],
+    "deny": [
+      "Read(./**/key*.properties)",
+      "Read(./**/*.jks)",
+      "Read(./**/*.keystore)",
+      "Bash(rm -rf:*)",
+      "Bash(git clean:*)"
+    ],
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)"
+    ]
+  }
+}
